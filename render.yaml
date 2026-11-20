@@ -1,3 +1,4 @@
+
 services:
   # 1. Products File Persistence
   - type: web
@@ -7,9 +8,6 @@ services:
     rootDir: File-persistent-app
     buildCommand: npm install
     startCommand: node server.js
-    envVars:
-      - key: PORT
-        value: 10000
 
   # 2. MongoDB Express
   - type: web
@@ -20,10 +18,8 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 10000
       - key: MONGO_URL
-        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+        sync: false
       - key: DB_NAME
         value: booksDB
 
@@ -36,10 +32,8 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 10000
       - key: MONGO_URL
-        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+        sync: false
       - key: DB_NAME
         value: movieDB
 
@@ -52,14 +46,12 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 10000
       - key: MONGO_URL
-        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+        sync: false
       - key: DB_NAME
         value: authDB
       - key: JWT_SECRET
-        value: default_jwt_secret_dev_key_12345
+        sync: false
 
   # 5. MVC Express
   - type: web
@@ -70,10 +62,8 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 10000
       - key: MONGO_URL
-        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+        sync: false
       - key: DB_NAME
         value: movieDB
 
@@ -86,14 +76,12 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 10000
       - key: MONGO_URI
-        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+        sync: false
       - key: DB_NAME
         value: productsDB
 
-  # 7. MERN CRUD Backend (Express Middleware API)
+  # 7. Express Middleware API
   - type: web
     name: express-middleware-api
     runtime: node
@@ -101,11 +89,8 @@ services:
     rootDir: express_middleware_api
     buildCommand: npm install
     startCommand: node server.js
-    envVars:
-      - key: PORT
-        value: 10000
 
-  # 7b. MERN CRUD Backend (Posts API for MERN Stack)
+  # 8. MERN CRUD Backend
   - type: web
     name: mern-crud-backend
     runtime: node
@@ -114,9 +99,7 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 10000
       - key: MONGO_URI
-        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+        sync: false
       - key: DB_NAME
         value: mernDB
